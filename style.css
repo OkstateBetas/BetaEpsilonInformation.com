@@ -265,3 +265,15 @@ html {
         padding-bottom: 40px;
     }
 }
+
+.event-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.event-item h4 {
+    margin-bottom: 8px;
+    color: #4c1d95;
+}
+
