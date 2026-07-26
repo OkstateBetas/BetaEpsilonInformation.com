@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>SLB Okstate Recruitment</title>
+
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
 <div class="container">
 
     <div class="left">
-        <img src="logo.png" alt="Sigma Lambda Beta logo" class="logo">
+
+        <img
+            src="logo.png"
+            alt="Sigma Lambda Beta logo"
+            class="logo"
+        >
 
         <h2>Our Mission Statement</h2>
 
@@ -20,9 +28,11 @@
             values-based environment that utilizes our historically Latino-based
             fraternity as a catalyst to better serve the needs and wants of all people.
         </p>
+
     </div>
 
     <div class="right">
+
         <div class="overlay">
 
             <h3 class="links-title">Our Links</h3>
@@ -44,7 +54,11 @@
                 Interest Form
             </a>
 
-            <button type="button" class="btn social-btn" id="socialBtn">
+            <button
+                type="button"
+                class="btn social-btn"
+                id="socialBtn"
+            >
                 Our Socials
             </button>
 
@@ -73,6 +87,7 @@
             </a>
 
         </div>
+
     </div>
 
 </div>
@@ -85,10 +100,15 @@
             return;
         }
 
+        if (window.innerWidth <= 768) {
+            return;
+        }
+
         const x = (window.innerWidth / 2 - event.pageX) / 40;
         const y = (window.innerHeight / 2 - event.pageY) / 40;
 
-        rightSide.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        rightSide.style.transform =
+            `rotateY(${x}deg) rotateX(${y}deg)`;
     });
 
     document.addEventListener("mouseleave", () => {
@@ -96,22 +116,31 @@
             return;
         }
 
-        rightSide.style.transform = "rotateY(0deg) rotateX(0deg)";
+        rightSide.style.transform =
+            "rotateY(0deg) rotateX(0deg)";
     });
 
-    const socialBtn = document.getElementById("socialBtn");
-    const socialPopup = document.getElementById("socialPopup");
+    const socialBtn =
+        document.getElementById("socialBtn");
+
+    const socialPopup =
+        document.getElementById("socialPopup");
 
     if (socialBtn && socialPopup) {
+
         socialBtn.addEventListener("click", () => {
             socialPopup.classList.toggle("active");
         });
 
         document.addEventListener("click", (event) => {
-            if (
-                !socialBtn.contains(event.target) &&
-                !socialPopup.contains(event.target)
-            ) {
+
+            const clickedButton =
+                socialBtn.contains(event.target);
+
+            const clickedPopup =
+                socialPopup.contains(event.target);
+
+            if (!clickedButton && !clickedPopup) {
                 socialPopup.classList.remove("active");
             }
         });
