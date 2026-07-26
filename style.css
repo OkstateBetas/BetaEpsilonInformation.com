@@ -16,17 +16,33 @@ body {
 }
 
 /* SLIDE ANIMATIONS */
+
 @keyframes slideLeft {
-    from { transform: translateX(-80px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+    from {
+        transform: translateX(-80px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 @keyframes slideRight {
-    from { transform: translateX(80px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+    from {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 /* LEFT SIDE */
+
 .left {
     flex: 1 1 400px;
     background: white;
@@ -59,6 +75,7 @@ body {
 }
 
 /* RIGHT SIDE */
+
 .right {
     flex: 1 1 400px;
     position: relative;
@@ -66,18 +83,36 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    animation: slideRight 1.2s ease forwards, gradientMove 12s ease infinite;
-    background: linear-gradient(-45deg, #5b21b6, #6b21a8, #4c1d95, #5b21b6);
+    animation:
+        slideRight 1.2s ease forwards,
+        gradientMove 12s ease infinite;
+    background: linear-gradient(
+        -45deg,
+        #5b21b6,
+        #6b21a8,
+        #4c1d95,
+        #5b21b6
+    );
     background-size: 400% 400%;
+    transition: transform 0.15s ease-out;
 }
 
 @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* CREST BACKGROUND */
+
 .right::before {
     content: "";
     position: absolute;
@@ -86,18 +121,26 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url("crest.png") center/contain no-repeat;
+    background: url("crest.png") center / contain no-repeat;
     opacity: 0.25;
     animation: float 6s ease-in-out infinite;
 }
 
 /* FLOAT ANIMATION */
+
 @keyframes float {
-    0%, 100% { transform: translate(-50%, -50%) translateY(5px); }
-    50% { transform: translate(-50%, -50%) translateY(-5px); }
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translateY(5px);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-5px);
+    }
 }
 
 /* OVERLAY */
+
 .overlay {
     position: relative;
     z-index: 1;
@@ -106,6 +149,7 @@ body {
 }
 
 /* TITLE */
+
 .overlay h3 {
     font-size: clamp(26px, 3vw, 36px);
     font-weight: bold;
@@ -113,18 +157,21 @@ body {
     text-decoration: none;
 }
 
-/* 🔥 ONLY THIS TITLE GETS UNDERLINE */
 .overlay h3.links-title {
     text-decoration: underline;
 }
+
 /* BUTTONS */
+
 .btn {
     display: block;
     margin: 16px auto;
     color: white;
     font-weight: bold;
     font-size: clamp(20px, 2vw, 26px);
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
     text-decoration: none;
 }
 
@@ -132,13 +179,23 @@ body {
     transform: scale(1.12);
 }
 
+/* Makes the social button match the links. */
+
+.social-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
 /* SOCIAL POPUP */
+
 .social-popup {
     position: absolute;
     top: 58%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.85);
     padding: 18px 28px;
     border-radius: 12px;
     text-align: center;
@@ -156,6 +213,7 @@ body {
 }
 
 /* POPUP ACTIVE */
+
 .social-popup.active {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
@@ -163,6 +221,7 @@ body {
 }
 
 /* Only real links underlined */
+
 a {
     text-decoration: underline;
 }
@@ -172,11 +231,13 @@ a:hover {
 }
 
 /* SMOOTH SCROLL */
+
 html {
     scroll-behavior: smooth;
 }
-/* Bigger Back Button for Qualifications page */
-/* Bigger Back Button (no background) */
+
+/* BACK BUTTON */
+
 .btn-large {
     font-size: clamp(26px, 3vw, 34px);
     padding: 10px 0;
@@ -189,8 +250,10 @@ html {
     transform: scale(1.12);
 }
 
-/* Page layout helpers */
+/* PAGE LAYOUT HELPERS */
+
 .page-content {
+    width: 100%;
     max-width: 700px;
     margin: auto;
     padding: 40px 20px;
@@ -209,11 +272,13 @@ html {
     border-radius: 12px;
     text-align: left;
     line-height: 1.7;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .info-card hr {
-    margin: 20px 0;
+    margin: 25px 0;
+    border: none;
+    border-top: 2px solid rgba(76, 29, 149, 0.25);
 }
 
 .back-btn-wrap {
@@ -221,21 +286,197 @@ html {
     margin-top: 35px;
 }
 
-/* Bigger Back Button (no background) */
-.btn-large {
-    font-size: clamp(26px, 3vw, 34px);
-    padding: 10px 0;
+/* RECRUITMENT PAGE */
+
+.recruitment-container {
+    display: block;
+}
+
+.recruitment-page {
+    width: 100%;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 20px 0;
+}
+
+/*
+Prevents the mouse rotation effect from being needed on the
+long recruitment schedule page.
+*/
+
+.recruitment-page:hover {
+    transform: none;
+}
+
+.week-title {
+    color: #4c1d95;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(76, 29, 149, 0.25);
+}
+
+.event-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.event-item:last-of-type {
+    border-bottom: none;
+}
+
+.event-item h4 {
+    margin-bottom: 8px;
+    color: #4c1d95;
+}
+
+.event-item p {
+    margin-bottom: 4px;
+}
+
+/* LOCATION LINKS */
+
+.location-link {
     display: inline-block;
-    background: none;
-    border-radius: 0;
+    color: #5b21b6;
+    font-weight: bold;
+    text-decoration: underline;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
 
-.btn-large:hover {
-    transform: scale(1.12);
+.location-link:hover {
+    transform: translateY(-1px);
+    opacity: 0.75;
+    text-decoration: none;
 }
 
-/* 📱 MOBILE OPTIMIZATION */
+/*
+TBD links look clickable but do not open a map until you
+replace href="#" with a real map link.
+*/
+
+.tbd-location {
+    cursor: pointer;
+}
+
+/* SCHEDULE MESSAGE */
+
+.schedule-message {
+    margin-top: 25px;
+}
+
+.schedule-message p {
+    margin-bottom: 15px;
+}
+
+.schedule-update {
+    padding: 12px;
+    border-left: 4px solid #6b21a8;
+    background: rgba(107, 33, 168, 0.08);
+}
+
+/* CONTACT BOX */
+
+.contact-box {
+    margin-top: 25px;
+    padding: 20px;
+    border: 2px solid #6b21a8;
+    border-radius: 12px;
+    text-align: center;
+    background: rgba(107, 33, 168, 0.06);
+}
+
+.contact-box h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #4c1d95;
+    font-size: 22px;
+}
+
+.contact-box p {
+    margin-bottom: 15px;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    color: white;
+    background: #5b21b6;
+    border: 2px solid #5b21b6;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.88;
+    text-decoration: none;
+}
+
+/* TBD LOCATION MESSAGE */
+
+.location-notice {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    z-index: 20;
+    width: calc(100% - 40px);
+    max-width: 500px;
+    padding: 14px 18px;
+    color: white;
+    background: rgba(38, 20, 61, 0.96);
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 20px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.location-notice.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* MOBILE OPTIMIZATION */
+
 @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .left {
+        padding: 40px 20px;
+    }
+
+    .right {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    /*
+    Disables the mouse rotation on smaller screens.
+    */
+
+    .right {
+        transform: none !important;
+    }
 
     .page-content {
         padding: 25px 15px;
@@ -251,6 +492,10 @@ html {
         line-height: 1.6;
     }
 
+    .week-title {
+        font-size: 21px;
+    }
+
     ul {
         padding-left: 18px;
     }
@@ -260,20 +505,11 @@ html {
         margin-top: 10px;
     }
 
-    .right {
-        padding-top: 40px;
-        padding-bottom: 40px;
+    .contact-box {
+        padding: 18px 14px;
+    }
+
+    .contact-btn {
+        width: 100%;
     }
 }
-
-.event-item {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.event-item h4 {
-    margin-bottom: 8px;
-    color: #4c1d95;
-}
-
