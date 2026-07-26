@@ -105,7 +105,6 @@ body.menu-open {
     );
 
     background-size: 400% 400%;
-
     transition: transform 0.15s ease-out;
 }
 
@@ -132,7 +131,9 @@ body.menu-open {
     aspect-ratio: 1 / 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+
+    transform:
+        translate(-50%, -50%);
 
     background:
         url("crest.png")
@@ -171,7 +172,7 @@ body.menu-open {
     color: white;
 }
 
-/* TITLE */
+/* TITLES */
 
 .overlay h3 {
     font-size: clamp(26px, 3vw, 36px);
@@ -224,20 +225,15 @@ body.menu-open {
         translate(-50%, -50%)
         scale(0.8);
 
-    background: rgba(0, 0, 0, 0.85);
+    background:
+        rgba(0, 0, 0, 0.85);
 
     padding: 18px 28px;
-
     border-radius: 12px;
-
     text-align: center;
-
     opacity: 0;
-
     pointer-events: none;
-
     transition: all 0.3s ease;
-
     z-index: 2;
 }
 
@@ -247,8 +243,6 @@ body.menu-open {
     font-size: 20px;
     margin: 10px 0;
 }
-
-/* SOCIAL POPUP ACTIVE */
 
 .social-popup.active {
     opacity: 1;
@@ -260,7 +254,7 @@ body.menu-open {
     pointer-events: auto;
 }
 
-/* LINKS */
+/* GENERAL LINKS */
 
 a {
     text-decoration: underline;
@@ -270,7 +264,7 @@ a:hover {
     text-decoration: none;
 }
 
-/* BACK BUTTON */
+/* LARGE BACK BUTTON */
 
 .btn-large {
     font-size: clamp(26px, 3vw, 34px);
@@ -302,13 +296,9 @@ a:hover {
 .info-card {
     background: white;
     color: #4c1d95;
-
     padding: 30px;
-
     border-radius: 12px;
-
     text-align: left;
-
     line-height: 1.7;
 
     box-shadow:
@@ -318,7 +308,6 @@ a:hover {
 
 .info-card hr {
     margin: 25px 0;
-
     border: none;
 
     border-top:
@@ -348,9 +337,7 @@ a:hover {
 .week-title {
     color: #4c1d95;
     font-size: 24px;
-
     margin-bottom: 20px;
-
     padding-bottom: 8px;
 
     border-bottom:
@@ -358,7 +345,7 @@ a:hover {
         rgba(76, 29, 149, 0.25);
 }
 
-/* EVENTS */
+/* EVENT SECTIONS */
 
 .event-item {
     margin-bottom: 20px;
@@ -378,16 +365,21 @@ a:hover {
     margin-bottom: 4px;
 }
 
-/* LOCATION BUTTONS */
+/* LOCATION BUTTON */
+
+/*
+The button itself is not underlined.
+Only .location-name receives the underline.
+*/
 
 .location-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 
     color: #5b21b6;
-
     font-weight: bold;
-
-    text-decoration: underline;
+    text-decoration: none;
 
     transition:
         transform 0.2s ease,
@@ -403,16 +395,42 @@ button.location-link {
     cursor: pointer;
 }
 
+/* PIN EMOJI */
+
+.location-pin {
+    display: inline-block;
+    flex-shrink: 0;
+    text-decoration: none;
+    line-height: 1;
+}
+
+/* ONLY THE LOCATION NAME IS UNDERLINED */
+
+.location-name {
+    display: inline-block;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+/* LOCATION HOVER EFFECT */
+
 .location-link:hover {
     transform: translateY(-1px);
     opacity: 0.75;
     text-decoration: none;
 }
 
+.location-link:hover .location-name {
+    text-decoration: none;
+}
+
+/* KEYBOARD FOCUS */
+
 .location-link:focus-visible {
     outline: 3px solid #6b21a8;
     outline-offset: 4px;
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 .tbd-location {
@@ -444,7 +462,6 @@ button.location-link {
 
 .contact-box {
     margin-top: 25px;
-
     padding: 20px;
 
     border:
@@ -452,7 +469,6 @@ button.location-link {
         #6b21a8;
 
     border-radius: 12px;
-
     text-align: center;
 
     background:
@@ -462,9 +478,7 @@ button.location-link {
 .contact-box h4 {
     margin-top: 0;
     margin-bottom: 10px;
-
     color: #4c1d95;
-
     font-size: 22px;
 }
 
@@ -474,11 +488,8 @@ button.location-link {
 
 .contact-btn {
     display: inline-block;
-
     padding: 12px 20px;
-
     color: white;
-
     background: #5b21b6;
 
     border:
@@ -486,9 +497,7 @@ button.location-link {
         #5b21b6;
 
     border-radius: 8px;
-
     text-decoration: none;
-
     font-weight: bold;
 
     transition:
@@ -507,7 +516,6 @@ button.location-link {
 .map-menu-overlay {
     position: fixed;
     inset: 0;
-
     z-index: 50;
 
     display: flex;
@@ -537,13 +545,9 @@ button.location-link {
 .map-menu {
     width: 100%;
     max-width: 460px;
-
     background: white;
-
     border-radius: 20px;
-
     overflow: hidden;
-
     transform: translateY(40px);
 
     transition:
@@ -564,7 +568,6 @@ button.location-link {
     display: flex;
     align-items: center;
     gap: 14px;
-
     padding: 22px 22px 18px;
 }
 
@@ -575,36 +578,27 @@ button.location-link {
 
     width: 48px;
     height: 48px;
-
     flex-shrink: 0;
 
     background:
         rgba(107, 33, 168, 0.1);
 
     border-radius: 50%;
-
     font-size: 24px;
 }
 
 .map-menu-label {
     margin-bottom: 2px;
-
     color: #6b7280;
-
     font-size: 13px;
-
     font-weight: bold;
-
     text-transform: uppercase;
-
     letter-spacing: 0.7px;
 }
 
 .map-menu-header h4 {
     color: #4c1d95;
-
     font-size: 22px;
-
     line-height: 1.25;
 }
 
@@ -633,19 +627,12 @@ button.location-link {
         rgba(0, 0, 0, 0.08);
 
     background: white;
-
     color: #4c1d95;
-
     font-family: inherit;
-
     font-size: 17px;
-
     font-weight: bold;
-
     text-align: left;
-
     text-decoration: none;
-
     cursor: pointer;
 
     transition:
@@ -658,32 +645,24 @@ button.location-link {
         rgba(107, 33, 168, 0.08);
 
     padding-left: 27px;
-
     text-decoration: none;
 }
 
 .map-menu-option:focus-visible {
-    outline:
-        3px solid
-        #6b21a8;
-
+    outline: 3px solid #6b21a8;
     outline-offset: -3px;
 }
 
 .map-option-icon {
     display: inline-flex;
-
     justify-content: center;
     align-items: center;
-
     width: 30px;
-
     font-size: 20px;
 }
 
 .cancel-option {
     color: #7f1d1d;
-
     border-bottom: none;
 }
 
@@ -691,32 +670,24 @@ button.location-link {
 
 .location-notice {
     position: fixed;
-
     left: 50%;
     bottom: 25px;
-
     z-index: 60;
 
     width:
         calc(100% - 40px);
 
     max-width: 500px;
-
     padding: 14px 18px;
-
     color: white;
 
     background:
         rgba(38, 20, 61, 0.96);
 
     border-radius: 10px;
-
     text-align: center;
-
     font-weight: bold;
-
     opacity: 0;
-
     pointer-events: none;
 
     transform:
@@ -768,9 +739,7 @@ button.location-link {
 
     .info-card {
         padding: 20px;
-
         font-size: 15px;
-
         line-height: 1.6;
     }
 
@@ -796,8 +765,7 @@ button.location-link {
     }
 
     .map-menu-overlay {
-        padding:
-            12px 12px 18px;
+        padding: 12px 12px 18px;
     }
 
     .map-menu {
