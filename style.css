@@ -9,8 +9,12 @@
 html,
 body {
     width: 100%;
+    max-width: 100%;
     min-height: 100%;
     overflow-x: hidden;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -23,12 +27,15 @@ body.menu-open {
     overflow: hidden;
 }
 
+/* MAIN CONTAINER */
+
 .container {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    max-width: 100%;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* SLIDE ANIMATIONS */
@@ -61,17 +68,22 @@ body.menu-open {
 
 .left {
     flex: 1 1 400px;
+    width: 100%;
+    max-width: 100%;
     background: white;
     text-align: center;
     padding: 60px 30px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     animation: slideLeft 1.2s ease forwards;
 }
 
 .logo {
+    display: block;
     max-width: 70%;
     height: auto;
     margin-bottom: 30px;
@@ -94,10 +106,14 @@ body.menu-open {
 
 .right {
     flex: 1 1 400px;
+    width: 100%;
+    max-width: 100%;
     position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     overflow: hidden;
 
     animation:
@@ -134,13 +150,15 @@ body.menu-open {
 .right::before {
     content: "";
     position: absolute;
-    height: 98%;
+
+    width: min(90%, 900px);
+    height: auto;
     aspect-ratio: 1 / 1;
+
     top: 50%;
     left: 50%;
 
-    transform:
-        translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
     background:
         url("crest.png")
@@ -148,9 +166,9 @@ body.menu-open {
         no-repeat;
 
     opacity: 0.25;
+    pointer-events: none;
 
-    animation:
-        float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
 }
 
 /* FLOAT ANIMATION */
@@ -175,6 +193,10 @@ body.menu-open {
 .overlay {
     position: relative;
     z-index: 1;
+
+    width: 100%;
+    max-width: 100%;
+
     text-align: center;
     color: white;
 }
@@ -197,15 +219,15 @@ body.menu-open {
 .btn {
     display: block;
     margin: 16px auto;
+
     color: white;
     font-weight: bold;
     font-size: clamp(20px, 2vw, 26px);
+    text-decoration: none;
 
     transition:
         transform 0.3s ease,
         opacity 0.3s ease;
-
-    text-decoration: none;
 }
 
 .btn:hover {
@@ -228,18 +250,22 @@ body.menu-open {
     top: 58%;
     left: 50%;
 
+    width: max-content;
+    max-width: calc(100% - 30px);
+
     transform:
         translate(-50%, -50%)
         scale(0.8);
 
-    background:
-        rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.85);
 
     padding: 18px 28px;
     border-radius: 12px;
     text-align: center;
+
     opacity: 0;
     pointer-events: none;
+
     transition: all 0.3s ease;
     z-index: 2;
 }
@@ -290,7 +316,7 @@ a:hover {
 .page-content {
     width: 100%;
     max-width: 700px;
-    margin: auto;
+    margin: 0 auto;
     padding: 40px 20px;
 }
 
@@ -301,10 +327,15 @@ a:hover {
 }
 
 .info-card {
+    width: 100%;
+    max-width: 100%;
+
     background: white;
     color: #4c1d95;
+
     padding: 30px;
     border-radius: 12px;
+
     text-align: left;
     line-height: 1.7;
 
@@ -331,14 +362,27 @@ a:hover {
 
 .recruitment-container {
     display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .recruitment-page {
     width: 100%;
+    max-width: 100%;
     min-height: 100vh;
-    overflow: visible;
+
+    overflow-x: hidden;
+    overflow-y: visible;
+
     padding: 20px 0;
     transform: none !important;
+}
+
+.recruitment-page::before {
+    width: min(90%, 900px);
+    height: auto;
+    aspect-ratio: 1 / 1;
 }
 
 .week-title {
@@ -355,8 +399,13 @@ a:hover {
 /* EVENT SECTIONS */
 
 .event-item {
+    width: 100%;
+    max-width: 100%;
+
     margin-bottom: 20px;
     padding-bottom: 15px;
+
+    overflow-wrap: anywhere;
 
     border-bottom:
         1px solid
@@ -374,19 +423,21 @@ a:hover {
 
 /* LOCATION BUTTON */
 
-/*
-The button itself is not underlined.
-Only .location-name receives the underline.
-*/
-
 .location-link {
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 5px;
+
+    max-width: 100%;
 
     color: #5b21b6;
     font-weight: bold;
     text-decoration: none;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 
     transition:
         transform 0.2s ease,
@@ -397,8 +448,11 @@ button.location-link {
     border: none;
     padding: 0;
     background: none;
+
     font-family: inherit;
     font-size: inherit;
+    text-align: left;
+
     cursor: pointer;
 }
 
@@ -414,10 +468,16 @@ button.location-link {
 /* ONLY THE LOCATION NAME IS UNDERLINED */
 
 .location-name {
-    display: inline-block;
+    display: inline;
+    max-width: 100%;
+
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 /* LOCATION HOVER EFFECT */
@@ -444,6 +504,24 @@ button.location-link {
     cursor: pointer;
 }
 
+/* LAKE DAY NOTE */
+
+.lake-note {
+    margin-top: 10px;
+    padding: 10px 12px;
+
+    background: rgba(107, 33, 168, 0.08);
+
+    border-left:
+        4px solid
+        #6b21a8;
+
+    border-radius: 6px;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 /* SCHEDULE MESSAGE */
 
 .schedule-message {
@@ -468,6 +546,9 @@ button.location-link {
 /* CONTACT BOX */
 
 .contact-box {
+    width: 100%;
+    max-width: 100%;
+
     margin-top: 25px;
     padding: 20px;
 
@@ -485,6 +566,7 @@ button.location-link {
 .contact-box h4 {
     margin-top: 0;
     margin-bottom: 10px;
+
     color: #4c1d95;
     font-size: 22px;
 }
@@ -495,7 +577,10 @@ button.location-link {
 
 .contact-btn {
     display: inline-block;
+    max-width: 100%;
+
     padding: 12px 20px;
+
     color: white;
     background: #5b21b6;
 
@@ -504,8 +589,11 @@ button.location-link {
         #5b21b6;
 
     border-radius: 8px;
+
     text-decoration: none;
     font-weight: bold;
+
+    overflow-wrap: anywhere;
 
     transition:
         transform 0.2s ease,
@@ -525,6 +613,9 @@ button.location-link {
     inset: 0;
     z-index: 50;
 
+    width: 100%;
+    max-width: 100%;
+
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -536,6 +627,8 @@ button.location-link {
 
     opacity: 0;
     visibility: hidden;
+
+    overflow-x: hidden;
 
     transition:
         opacity 0.25s ease,
@@ -552,9 +645,12 @@ button.location-link {
 .map-menu {
     width: 100%;
     max-width: 460px;
+
     background: white;
+
     border-radius: 20px;
     overflow: hidden;
+
     transform: translateY(40px);
 
     transition:
@@ -575,6 +671,7 @@ button.location-link {
     display: flex;
     align-items: center;
     gap: 14px;
+
     padding: 22px 22px 18px;
 }
 
@@ -585,6 +682,7 @@ button.location-link {
 
     width: 48px;
     height: 48px;
+
     flex-shrink: 0;
 
     background:
@@ -596,9 +694,12 @@ button.location-link {
 
 .map-menu-label {
     margin-bottom: 2px;
+
     color: #6b7280;
+
     font-size: 13px;
     font-weight: bold;
+
     text-transform: uppercase;
     letter-spacing: 0.7px;
 }
@@ -620,6 +721,7 @@ button.location-link {
 
 .map-menu-option {
     width: 100%;
+    max-width: 100%;
 
     display: flex;
     align-items: center;
@@ -635,11 +737,14 @@ button.location-link {
 
     background: white;
     color: #4c1d95;
+
     font-family: inherit;
     font-size: 17px;
     font-weight: bold;
+
     text-align: left;
     text-decoration: none;
+
     cursor: pointer;
 
     transition:
@@ -664,7 +769,10 @@ button.location-link {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+
     width: 30px;
+    flex-shrink: 0;
+
     font-size: 20px;
 }
 
@@ -681,19 +789,21 @@ button.location-link {
     bottom: 25px;
     z-index: 60;
 
-    width:
-        calc(100% - 40px);
-
+    width: calc(100% - 40px);
     max-width: 500px;
+
     padding: 14px 18px;
+
     color: white;
 
     background:
         rgba(38, 20, 61, 0.96);
 
     border-radius: 10px;
+
     text-align: center;
     font-weight: bold;
+
     opacity: 0;
     pointer-events: none;
 
@@ -724,6 +834,7 @@ button.location-link {
     .right {
         flex: 1 1 auto;
         width: 100%;
+        max-width: 100%;
     }
 
     .left {
@@ -734,6 +845,14 @@ button.location-link {
         padding-top: 40px;
         padding-bottom: 40px;
         transform: none !important;
+    }
+
+    .right::before {
+        width: min(95%, 650px);
+    }
+
+    .recruitment-page {
+        padding: 20px 0;
     }
 
     .page-content {
@@ -801,6 +920,11 @@ button.location-link {
         max-width: 85%;
     }
 
+    .page-content {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
     .info-card {
         padding: 18px 15px;
     }
@@ -820,5 +944,9 @@ button.location-link {
     .map-menu-option {
         padding: 17px 18px;
         font-size: 16px;
+    }
+
+    .right::before {
+        width: 95%;
     }
 }
