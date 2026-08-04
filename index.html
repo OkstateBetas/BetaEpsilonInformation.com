@@ -93,33 +93,6 @@
 </div>
 
 <script>
-    const rightSide = document.querySelector(".right");
-
-    document.addEventListener("mousemove", (event) => {
-        if (!rightSide) {
-            return;
-        }
-
-        if (window.innerWidth <= 768) {
-            return;
-        }
-
-        const x = (window.innerWidth / 2 - event.pageX) / 40;
-        const y = (window.innerHeight / 2 - event.pageY) / 40;
-
-        rightSide.style.transform =
-            `rotateY(${x}deg) rotateX(${y}deg)`;
-    });
-
-    document.addEventListener("mouseleave", () => {
-        if (!rightSide) {
-            return;
-        }
-
-        rightSide.style.transform =
-            "rotateY(0deg) rotateX(0deg)";
-    });
-
     const socialBtn =
         document.getElementById("socialBtn");
 
