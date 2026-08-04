@@ -1,16 +1,22 @@
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 body {
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    background: #5b21b6;
 }
 
 body.menu-open {
@@ -20,7 +26,9 @@ body.menu-open {
 .container {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 /* SLIDE ANIMATIONS */
@@ -105,7 +113,6 @@ body.menu-open {
     );
 
     background-size: 400% 400%;
-    transition: transform 0.15s ease-out;
 }
 
 @keyframes gradientMove {
